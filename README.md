@@ -27,7 +27,7 @@ Disclaimer: Todos los comandos han sido ejecutados en una terminal de linux.
 * Completar el tutorial inicial de Docker
 
 * Ejecutar algunos ejemplos:
-  * Nginx: `docker run --name -v ./:/usr/share/nginx/html:ro -d nginx`
+  * Nginx: `docker run -v ./:/usr/share/nginx/html:ro -p 80:80 -d nginx`
 
 * Aprender los primeros comandos:
   * `docker ps`
