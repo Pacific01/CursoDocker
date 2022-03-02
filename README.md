@@ -16,10 +16,26 @@ Después podemos seguir con los ejercicios.
 
 Disclaimer: Todos los comandos han sido ejecutados en una terminal de linux.
 
-
 # Agenda y ejercicios
 
-- Instalar docker y hacer el tutorial.
+* Instalar docker:
+  * [Instalar WSL](https://docs.microsoft.com/en-us/windows/wsl/install)
+  * [Instalar actualización de Kernel de Linux](https://docs.microsoft.com/es-es/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)
+  * [Instalar Docker Desktop en Windows](https://docs.docker.com/desktop/windows/install/)
+
+* Correr el hello world en docker `docker run hello-world`
+* Completar el tutorial inicial de Docker
+
+* Ejecutar algunos ejemplos:
+  * Nginx: `docker run --name -v ./:/usr/share/nginx/html:ro -d nginx`
+
+* Aprender los primeros comandos:
+  * `docker ps`
+  * `docker run`
+  * `docker rm`
+  * `docker logs`
+  * `docker exec`
+
 - Django+db
 - Instalar Docker-compose
 - Django+db+compose
