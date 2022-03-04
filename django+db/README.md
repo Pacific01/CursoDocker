@@ -89,37 +89,80 @@ Ya tenemos base de datos.
 
 ## Vamos a construir el BackEnd con Django
 
+Para ello vamos a empezar clonando el proyecto entero [Pacific01/CursoDocker](https://github.com/Pacific01/CursoDocker)
+
+```sh
+git clone https://github.com/Pacific01/CursoDocker.git
+```
+
+Y entramos dentro del proyecto y dentro de la carpeta django+db
+
+```sh
+cd CursoDocker/django+db
+```
+
+Una vez dentro podemos observar que el proyecto consta de un Dockerfile y un
+requirements.txt entre otros.
+
+Vamos a construir la imagen a partir del Dockerfile.
+
 ```sh
 docker build -t django .
+```
 
-# Haced un docker images para ver que la nueva imágen está ahí.
+Haced un docker images para ver que la nueva imágen está ahí.
 
+```sh
+docker images
+```
+
+Ahora que sabemos que contamos con nuestra imagen django podemos ejecutarla y
+crear un cotenedor
+
+```sh
 docker run django
+```
 
-# No ocurrirá nada, ya que el docker file no define un entrypoint
-# Vamos a entrar en el contenedor en el momento de crearlo
+No ocurrirá nada, ya que el docker file no define un entrypoint
+Vamos a entrar en el contenedor en el momento de crearlo
+
+```sh
 docker run -it django /bin/bash
+```
 
-# y vamos a pedirle al django que nos cree un proyecto
+Una vez dentro vamos a pedirle al django que nos cree un proyecto
+
+```sh
 django-admin startproject example .
+```
 
-# Comprovamos que está ahí
+Comprovamos que está ahí
+
+```sh
 ls
 ls example
+```
 
-# Salimos
+Salimos
+
+```sh
 exit
 ls
 ls example
+```
 
-# El proyecto no está!!!!
+El proyecto no está!!!!
 
-# Es devido a que no hemos enlazado el volumen del contenedor con el host.
-# Vamos a voler a intentarlo pero esta vez enlazaremos el volumen
+Es devido a que no hemos enlazado el volumen del contenedor con el host.
+Vamos a voler a intentarlo pero esta vez enlazaremos el volumen
 
+```sh
 docker run -v `pwd`:/code -it django /bin/bash
+```
 
-# Y creamos el proyecto
+Y creamos el proyecto
+
+```sh
 django-admin startproject example .
 ```
 
