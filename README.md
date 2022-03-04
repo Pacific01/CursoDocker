@@ -16,7 +16,9 @@ Después podemos seguir con los ejercicios.
 
 Disclaimer: Todos los comandos han sido ejecutados en una terminal de linux.
 
-# Agenda y ejercicios
+## Agenda y ejercicios
+
+### 1er día
 
 * Instalar docker:
   * [Instalar WSL](https://docs.microsoft.com/en-us/windows/wsl/install)
@@ -35,6 +37,17 @@ Disclaimer: Todos los comandos han sido ejecutados en una terminal de linux.
   * `docker rm`
   * `docker logs`
   * `docker exec`
+
+### Segundo día
+
+* Repaso de los conceptos adquiridos el primer día
+* Repaso de los comandos básicos de docker
+* Un repaso de lo que es GIT y como funciona
+* Una explicación de lo que compone un proyecto web
+* Hacer el ejercicio Django+DB
+
+* Explicar Docker Compose
+* Hacer el ejercicio de convertir el comando de docker en un docker compose.
 
 - Django+db
 - Instalar Docker-compose

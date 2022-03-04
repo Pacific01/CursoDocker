@@ -3,19 +3,50 @@
 Aprender a levantar y coordinar un proyecto que requiere dos o mas dockers
 mediante la prueba y error.
 
-Empezaremos levantando la base de datos.
+Durante este ejercicio vamos a levantar dos contenedores: una base de datos
+Postgres y una aplicación django. En el proceso aprenderemos a gestionar mas de
+un contenedor y sus respectivos volúmenes, así como a crear una networks de
+docker para que los contenedores interactúen entre sí.
 
-# Run database image
+## Desarrollo en windows: Abriendo wsl en una powershell sin permisos de administración
+
+## Empezaremos levantando la base de datos
+
+Vamos a intentar levantar la última versión de postgres.
+
 ```sh
 docker run postgres
-
-# Añade la contraseña a la base de datos
-docker run \
-  -e POSTGRES_PASSWORD='secret' \
-  -e POSTGRES_DB='db' \
-  -e POSTGRES_USER='postgres' \
-  postgres
 ```
+
+Como podemos observar la terminal nos reporta el siguiente error:
+
+```log
+Error: Database is uninitialized and superuser password is not specified.
+       You must specify POSTGRES_PASSWORD to a non-empty value for the
+       superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+
+       You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+       connections without a password. This is *not* recommended.
+
+       See PostgreSQL documentation about "trust":
+       https://www.postgresql.org/docs/current/auth-trust.html
+```
+
+El cual nos indica que el contenedor necesita ciertas variables de entorno y
+como debemos pasárselas.
+
+Intenta crear de nuevo el comando pero con este atributo añadido y ejecutar con
+éxito la base de datos.
+
+Una vez ejecutado el comando deberíamos ver la siguiente salida:
+
+```sh
+2022-02-16 15:58:35.253 UTC [1] LOG:  database system is ready to accept connections
+´´´
+
+Lo cual nos indica que todo ha ido correctamente.
+
+Podemos detener la ejecución con Ctrl+C.
 
 # Detalle extra nº1 - TAGs
 
@@ -29,12 +60,15 @@ docker images
 
 docker run \
   -e POSTGRES_PASSWORD='secret' \
-  -e POSTGRES_DB='db' \
-  -e POSTGRES_USER='postgres' \
   postgres:14.1-alpine
 ```
 
-Ahora solo faltaría ponerle un nombre y hacerle un detach.
+## Primera parte del ejercicio terminada.
+
+⚠️ Avisar al profesor ⚠️
+
+Como mejorar este comando. Podemos ir al hub a ver de que otras variables
+dispone el contenedor, ponerle un nombre y ejecutarlo en modo detach.
 
 ```sh
 docker run \
@@ -46,9 +80,14 @@ docker run \
   postgres:14.1-alpine
 ```
 
+Comprueba que todo ha ido bien con el docker logs sobre el contenedor.
+
+Ahora que has comprueba que todo va bien puedes pararlo por el momento.
+
 Ya tenemos base de datos.
 
-# Build the django image
+# Vamos a construir el BackEnd con Django
+
 ```sh
 docker build -t django .
 
