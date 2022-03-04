@@ -205,7 +205,10 @@ y por colocar los dockers en la misma red:
 
 ```sh
 docker network create my-net
+```
+
 Postgres:
+
 ```sh
 docker run \
   -d \
