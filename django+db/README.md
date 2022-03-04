@@ -212,7 +212,7 @@ Postgres:
 ```sh
 docker run \
   -d \
-  --name postgres \
+  --name db \
   -e POSTGRES_PASSWORD='secret' \
   -e POSTGRES_DB='db' \
   -e POSTGRES_USER='postgres' \
