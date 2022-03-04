@@ -42,15 +42,16 @@ Una vez ejecutado el comando deberíamos ver la siguiente salida:
 
 ```sh
 2022-02-16 15:58:35.253 UTC [1] LOG:  database system is ready to accept connections
-´´´
+```
 
 Lo cual nos indica que todo ha ido correctamente.
 
 Podemos detener la ejecución con Ctrl+C.
 
-# Detalle extra nº1 - TAGs
+## Detalle extra nº1 - TAGs
 
 Corred el comando:
+
 ```sh
 docker images
 
@@ -63,7 +64,7 @@ docker run \
   postgres:14.1-alpine
 ```
 
-## Primera parte del ejercicio terminada.
+## Primera parte del ejercicio terminada
 
 ⚠️ Avisar al profesor ⚠️
 
@@ -86,7 +87,7 @@ Ahora que has comprueba que todo va bien puedes pararlo por el momento.
 
 Ya tenemos base de datos.
 
-# Vamos a construir el BackEnd con Django
+## Vamos a construir el BackEnd con Django
 
 ```sh
 docker build -t django .
@@ -122,7 +123,7 @@ docker run -v `pwd`:/code -it django /bin/bash
 django-admin startproject example .
 ```
 
-# Vamos a correr el proyecto
+## Vamos a correr el proyecto
 
 ```sh
 docker run \
@@ -141,6 +142,7 @@ Espera un momento pero no están juntas.
 
 Vamos a juntarlas:
 Empezaremos por conectar el django a la base de datos
+
 ```sh
 DATABASES = {
     'default': {
@@ -153,9 +155,11 @@ DATABASES = {
     }
 }
 ```
+
 y por colocar los dockers en la misma red:
 
-# Creamos la red
+## Creamos la red
+
 ```sh
 docker network create my-net
 Postgres:
@@ -172,16 +176,11 @@ docker run \
 ```
 
 Django
+
 ```sh
 docker run \
   -v `pwd`:/code \
   -p 8000:8000 \
   --network my-net \
   django python manage.py runserver 0.0.0.0:8000
-```
-
-
-# Guardar las envs en un file (opcional)
-```sh
-docker run --env-file ./env
 ```

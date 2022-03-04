@@ -18,7 +18,7 @@ Disclaimer: Todos los comandos han sido ejecutados en una terminal de linux.
 
 ## Agenda y ejercicios
 
-### 1er día
+### Primer día
 
 * Instalar docker:
   * [Instalar WSL](https://docs.microsoft.com/en-us/windows/wsl/install)
@@ -49,7 +49,6 @@ Disclaimer: Todos los comandos han sido ejecutados en una terminal de linux.
 * Explicar Docker Compose
 * Hacer el ejercicio de convertir el comando de docker en un docker compose.
 
-- Django+db
-- Instalar Docker-compose
-- Django+db+compose
-- parcel+elm+docker+ci+cd
+### Tercer día
+
+* parcel+elm+docker+ci+cd
