@@ -49,6 +49,11 @@ nos hará el build.
   + Action that build the docker image -> "Image Build in previous action"
 - En la segunda pestaña "CMD" rellenamos el input "Entrypoint" con el siguiente
   comando: `npm install`
+- En la tercera pestaña "Cache":
+  + Attach pipeline filesystem ->  "Mount filesystem to the Docker container in
+    which this action is run"
+  + Mount container path -> "/code"
+
 - Ya podemos guardar esta action en nuestra pipeline.
 
 - (Opcional) Podemos volver a darle a "Run pipeline", arriba a la derecha, para
