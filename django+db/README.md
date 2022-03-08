@@ -218,7 +218,6 @@ docker run \
   -e POSTGRES_PASSWORD='secret' \
   -e POSTGRES_DB='db' \
   -e POSTGRES_USER='postgres' \
-  -p 5433:5432 \
   --network my-net \
   postgres:14.1-alpine
 ```
@@ -231,4 +230,4 @@ docker run \
   -p 8000:8000 \
   --network my-net \
   django python manage.py runserver 0.0.0.0:8000
-e``
+```
