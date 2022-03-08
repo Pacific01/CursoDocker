@@ -153,11 +153,13 @@ ls example
 
 El proyecto no está!!!!
 
-Es devido a que no hemos enlazado el volumen del contenedor con el host.
-Vamos a voler a intentarlo pero esta vez enlazaremos el volumen
+Es debido a que no hemos enlazado el volumen del contenedor con el host.
+Vamos a voler a intentarlo pero esta vez enlazaremos el volumen y además le
+indicaremos a docker la id de grupo y usuario con la que queremos identificarnos
+dentro del contenedor.
 
 ```sh
-docker run -v `pwd`:/code -it django /bin/bash
+docker run -v `pwd`:/code --user "$(id -u):$(id -g)" -it django /bin/bash
 ```
 
 Y creamos el proyecto
@@ -229,4 +231,4 @@ docker run \
   -p 8000:8000 \
   --network my-net \
   django python manage.py runserver 0.0.0.0:8000
-```
+e``
