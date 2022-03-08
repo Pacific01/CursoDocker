@@ -51,4 +51,8 @@ Disclaimer: Todos los comandos han sido ejecutados en una terminal de linux.
 
 ### Tercer día
 
-* parcel+elm+docker+ci+cd
+* Repasar los conceptos del día anterior: Docker, git, web
+* Explicar docker compose
+* Levantar la todo app con docker compose
+* Explicar que es un CI/CD y el proceso de deply
+* Subirlo todo a Buddy y Netlify
